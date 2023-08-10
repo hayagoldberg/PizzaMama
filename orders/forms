@@ -1,0 +1,9 @@
+from django import forms
+from menue.models import Pizza
+
+
+class OrderForm(forms.Form):
+    customer_name = forms.CharField(max_length=100)
+    customer_phone = forms.CharField(max_length=20)
+    customer_address = forms.CharField(max_length=200)
+    pizzas = forms.ModelMultipleChoiceField(queryset=Pizza.objects.all(), widget=forms.CheckboxSelectMultiple)

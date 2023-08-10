@@ -1,8 +1,7 @@
 from django.db import models
 
+
 # Create your models here.
-
-
 class Pizza(models.Model):
     name = models.CharField(max_length=20)
     ingredients = models.CharField(max_length=400)
@@ -11,6 +10,3 @@ class Pizza(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
