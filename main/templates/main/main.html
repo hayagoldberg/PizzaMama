@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>main-page</title>
+    <link rel="stylesheet" href= "{% static 'main/styles.css' %}">
+
+</head>
+<body>
+    <div class="centered">
+        <img src="{% static 'main/main_logo.png' %}" alt="Logo" id="logo_image" />
+        <a href="{% url 'menue:menue' %}"> Open the menu </a>
+    </div>
+</body>
+</html>
