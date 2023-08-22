@@ -1,0 +1,31 @@
+li {
+    color: red;
+}
+
+
+h1 {
+    background-color: #DD7835;
+    display: inline-block;
+    padding: 8px 22px;
+}
+
+body {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("Pizza-3007395.jpg") no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+    margin: 0px;
+    font-family: Arial;
+}
+
+#logo_image {
+    margin-top: 25px;
+    margin-left: 35px;
+}
+
+#main_title {
+    margin-top: 45px;
+    margin-bottom: 50px;
+}

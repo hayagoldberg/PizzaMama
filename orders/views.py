@@ -1,22 +1,20 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, HttpResponse
+from .models import Order
 from menue.models import Pizza
-from .models import Order, OrderedPizza
 from .forms import OrderForm
 
 
 def order_view(request):
+    pizzas = Pizza.objects.all()
+
     if request.method == 'POST':
         form = OrderForm(request.POST)
+
         if form.is_valid():
-            order = Order.objects.create(
-                customer_name=form.cleaned_data['customer_name'],
-                customer_phone=form.cleaned_data['customer_phone'],
-                customer_address=form.cleaned_data['customer_address']
-            )
-            for pizza in form.cleaned_data['pizzas']:
-                OrderedPizza.objects.create(order=order, pizza=pizza, quantity=1)
-            return redirect('success_page')  # Redirige vers une page de confirmation
+            form.save()
+            # order.calculate_total()  # Assuming you have a method to calculate the total price
+            return HttpResponse('votre commande a ete enregistre')
     else:
         form = OrderForm()
-    return render(request, 'orders/order_form.html', {'form': form})
 
+    return render(request, 'orders/order_form.html', {'pizzas': pizzas, 'form': form})

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Order Pizza </title>
+    <link rel="stylesheet" href="{% static 'orders/styles.css' %}">
+
+</head>
+<body>
+    <header>
+        <a href="{% url 'menue:menue' %}"> <img src="{% static 'menue/small_logo.png' %}" alt="Logo" id="logo_image" /></a>
+    </header>
+    <div>
+        <h1> Place Your Order </h1>
+    </div>
+   <form method="post">
+  {% csrf_token %}
+
+  {% for pizza in pizzas %}
+    <label>{{ pizza.name }}: quantite <input type="number" name="pizza_{{ pizza.id }}" min="0"></label><br>
+  {% endfor %}
+
+  <label>Nom: <input type="text" customer_name="customer_name"></label><br>
+  <label>Adresse: <input type="text" customer_address="customer_address"></label><br>
+
+  <input type="submit" value="Valider la commande">
+</form>
+
+</body>
+</html>

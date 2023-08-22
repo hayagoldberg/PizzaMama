@@ -9,6 +9,10 @@ h1 {
     padding: 8px 22px;
 }
 
+a{
+    color: #C8C8C8;
+}
+
 body {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("menu_background.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
